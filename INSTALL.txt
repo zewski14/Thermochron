@@ -1,0 +1,80 @@
+Installation Instructions
+(Files required for installation can be found in 'thermochron_install' under the associated OS)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PC:
+1) Remove older versions of python and install python version 2.7.1:
+
+	Use the automated installer in 'thermochron_install'. If this is not available go to http://www.python.org/download/ and download 'Python 2.7.1 Windows Installer'.
+
+2) Install NumPy package for python:
+
+	Use the automated installer in 'thermochron_install'. If this is not available go to http://sourceforge.net/projects/numpy/files/NumPy/ and download the 1.6.0 version. 
+
+3) Install the SciPy package for python:
+
+	Use the automated installer in 'thermochron_install'. If this is not available go to http://sourceforge.net/projects/scipy/files/scipy/ and download the 0.9.0 version. 
+
+4) Install the Matplotlib package for python:
+
+	Use the automated installer in 'thermochron_install'. If this is not available go to http://sourceforge.net/projects/matplotlib/ and download the 1.0.1 version. 
+
+5) Install MinGW:
+
+	Use the automated installer in 'thermochron_install'. If this is not available go to http://sourceforge.net/projects/mingw/files and download the installer.  
+
+	In the automated installer there will be a page titled 'Select Components'. Ensure that the following components are selected: MinGW Compiler Suite, C++ Compiler, Fortran Compiler, 
+	and MinGW Developer ToolKit. 
+
+6) Install PyMC:
+
+	Unpack the zip file in 'Thermochron install' to a directory of your choice. This zip file is available under downloads at https://github.com/pymc-devs/pymc. http://pypi.python.org/pypi/pymc/
+
+	DO NOT DOWNLOAD VIA EXEC...use full zipped download from github and run like below:
+
+Important: open the following python module: ../pymc/PyMCObjects.py
+	(To open a python module right click and select 'open with IDLE')
+	Change line 824 of this module to: return -np.inf
+
+	Right click on 'My Computer' and select system properties. Go to Advanced and select Environment Variables. Create a new User Variable named 'PATH' with value
+	'C:\Python27;C:\Python27\Scripts'. Also create a User Variable named 'PYTHONPATH' and set its value to the location of PyMC. 
+
+	Open a MinGW shell and change the directory to the location of PyMC. To change directory use 'cd'. Example: 'cd /c/Documents\ and\ Settings/uniquename/My\ Documents/pymc'
+	(A forward slash ' \ ' is required before every space)
+
+	Once you are in the correct directory for pymc, type 'python setup.py install' PyMC will begin to install--it will take a few minutes to finish.
+
+	NO: -or- python setup.py build --force -c mingw32 
+             python setup.py install --force --skip-build 
+
+         C:\Python27\ArcGIS10.1\Lib\site-packages\pymc
+
+ 
+7) USe MinGW to run the program. Follow the instructions in the README.txt and in 'model_setup.py'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MAC:
+
+1) Remove older versions of python. Install Enthought Python Distribution:
+
+	EPD provides all of the necessary dependancies: NumPy, SciPy, and Matplotlib. Use the installer in the .dmg file in 'thermochron_install'. If this is not available, download the free
+	academic version of EPD at: http://www.enthought.com/products/edudownload.php
+
+2) Install PyMC:
+
+	Unpack/move the PyMC folder to a desired location on the hard drive. In ../Applications/Utilities/ open a terminal and change to the directory of the PyMC folder. Type the following:
+	'python setup.py config_fc --fcompiler gnu95 build' and press enter. Then Type: 'python setup.py install'. This will install pymc. 
+
+	Important: open the following python module: ../pymc/PyMCObjects.py
+	(To open a python module right click and select 'open with IDLE')
+	Change line 824 of this module to: return -np.inf
+
+3) In ../Applications/Enthought there will be the application 'PyLab'. Use this python shell to run the program. Follow the instructions in the README.txt and in 'model_setup.py'.
+
+
+
+
+New Notes:
+PC:
+Python 2.7.1 WINDOWS x86 MSI Installer (NO 64bit support for PyMC)
+system+security>system>advanced properties...
